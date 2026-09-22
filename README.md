@@ -1,28 +1,62 @@
-# Ambient Intelligence Recipe (Not a product.)
-อ่านที่นี่ก่อน Repo นี้ ไม่ใช่โค้ดหรือว่าระบบตัวเต็มที่จะสามารถรันแล้วใช้งานได้เลยแต่เป็นเพียงสูตรในการสร้างที่ผมคิดทิ้งไว้ แล้วก็รวบรวมของที่จำเป็นหรือว่าวิธีการในการเชื่อมต่อแต่ละระบบเข้าด้วยกันเพื่อได้ผลลัพธ์เป็นระบบที่ชื่อว่า Aml โดยที่เอกสารนี้ในเวอร์ชันปัจจุบันที่กำลังตั้งใจเขียนอยู่ ไม่ใช่ทั้งหมดของตัวเต็มระบบนี้ เป็นเพียง Prototype ที่ผมประกอบแล้วก็ใช้งานเองที่บ้านมาประมาณหกเดือน 
+# Ambient Intelligence Recipe (Not a Product.)
 
-สาเหตุที่ว่าทำไมต้องมีก็เพราะว่าการอยู่บ้านคนเดียวแล้วต้องดูแลห้องต่างๆมากๆมาย ต้องคอยเปิดปิดไฟฟ้า หรือจะใช้ระบบที่มีอยู่ตอนนี้ก็ยุ่งยากเกินไปเพราะว่าต้องกดเข้าแอปโทรศัพท์ ข้อจำกัดคือการไม่สามารถพูดคุยกับบ้านได้โดยตรง หรืออีกปัญหาเล็กๆน้อยๆก็คือ ผมกลับบ้านมาตอนสี่ทุ่มถึงห้าทุ่มแล้วไม่มีคนอยู่บ้าน ซื้อของมาเต็มหลังรถ ลืมเอากุญแจรีโมทออกจากบ้านมาด้วย แล้วดันไม่มีมือว่างพอด้วยซ้ำ ที่จะไปไล่เปิดไฟแล้วเอาของไปเก็บแล้วจึงกลับมาปิดไฟ มันเป็นการกระทำที่สิ้นเปลืองพลังงานมาก กรณีนี้จะเห็นผลไม่ชัดถ้าอยู่ในบ้านแต่แต่พอเปลี่ยนสถานที่ไปเป็นโรงแรม หรือสถานที่ขนาดใหญ่ ปัญหาก็เปลี่ยนไป โดยที่หลักการพื้นฐานยังสามารถมองผ่าน topology เดียวกันได้ แต่เมื่อขนาดและความเสี่ยงเพิ่มขึ้น รายละเอียดทางวิศวกรรมก็เพิ่มขึ้นตามไปด้วย เอกสารนี้จะจำกัดอยู่ที่ prototype ระดับบ้านนะครับ
+A quick note before you start: this repository is not a complete system or a piece of software that you can simply run and use.
 
-การบริหารจัดการพัดลมหรือว่าดวงไฟระดับหลักร้อยดวงหรือว่าหลักพันดวงมันคงไม่เหมือนกับในห้องของตัวเองที่มีแค่ดวงเดียว หรือว่าพัดลมหนึ่งตัว หรือระบบ Sprinkler ในสเกลบ้านที่ขอแค่เมื่อถึงบริบทนั้นแล้วบ้านจะสั่งปั๊มน้ำทำงาน มันก็ง่ายพอที่จะลองทำเองตามสูตรนี้ได้เช่นกันครับแต่ว่า ถ้าเป็นสเกลระดับอุตสาหกรรม ก็ทำเหมือนกันได้เหมือนกันแต่แค่ว่าต้องซื้อของเยอะหน่อยแล้วก็ออกแรงเยอะหน่อย
+It is a recipe.
 
-เอกสารนี้ไม่ใช่เอกสารที่เป็นงานวิชาการอย่างเป็นทางการนะครับฉะนั้นเหมือนอ่านเรื่องเล่าของเด็กเนิร์ด ที่ไปลองประกอบเทคโนโลยีมาแล้วแล้วมันใช้ได้ก็เลยเอามาแบ่งปันน่ะครับ
+I'm putting together the ingredients, ideas, and ways of connecting different systems that can be used to build what we call Ambient Intelligence (AmI).
+
+The current version of this document does not describe the complete system I have in mind. It is based on a prototype that I assembled and have been running in my own home for roughly six months.
+
+Why build something like this in the first place?
+
+I live alone, and taking care of multiple rooms means constantly turning lights and appliances on and off. Existing smart-home systems can help, but interacting with them often still means taking out a phone, opening an app, finding the right device, and pressing a button. More importantly, you still can't really talk directly to the place around you.
+
+There are also much simpler everyday problems.
+
+Sometimes I come home around 10 or 11 PM with the back of the car full of things. I may have forgotten the remote inside the house, and sometimes I don't even have a free hand to turn on the lights. I have to walk around turning things on, unload everything, and then walk back around turning them off again.
+
+It's a small waste of effort at home.
+
+But when the same idea is applied to a hotel or a much larger place, the nature of the problem changes. The basic topology can still be understood in a similar way, but as the scale and risk increase, so does the engineering complexity.
+
+This document will stay within the scope of a home-scale prototype.
+
+Managing hundreds or thousands of lights and fans is obviously different from managing one light and one fan in a room. But at home, something like a sprinkler system can be simple enough to experiment with: when the right context is present, the house can decide to activate a water pump.
+
+The same basic ideas can extend to larger environments, but larger systems require significantly more engineering, infrastructure, safety considerations, and operational work.
+
+This is not a formal academic paper.
+
+Think of it more like notes from a nerd who tried assembling a bunch of technologies at home, found that they actually worked together, and decided to share the recipe.
 
 ---
 
-<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/22656e00-6346-41bf-bc59-5ae3b3d071d4" />
+<img width="1536" height="1024" alt="Ambient Intelligence prototype" src="https://github.com/user-attachments/assets/22656e00-6346-41bf-bc59-5ae3b3d071d4" />
 
 ---
 
-## Ambient Intelligence ประกอบด้วยอะไรบ้าง (พื้นฐาน)
-อุปกรณ์พวกนี้ส่วนใหญ่เป็นของใกล้ตัวแล้วก็หาซื้อได้ในหลายประเทศ ส่วนตัวยี่ห้อที่ผมใช้ตอนนี้ก็คือ Shelly เป็นหลักในส่วนของ Sensor/Actuator และ Presense สามารถใช้เครื่องมือจาก Ecosystem ของ iOS/Android หรือช่องทางอื่นๆได้เลย
-- Sensor : เป็นองค์ประกอบสำคัญที่ใช้เพื่อส่งมอบบริบทจากโลกจริงเข้าสู่โลกจำลองเพื่อนำไปคิดและตัดสินใจ โดยส่งไปที่ Ingest และจะถูกนำไปเป็น weight ในกระบวนการ descision ต่อ
-- Actuator : สิ่งนี้เสมือน อวัยวะสั่งการที่เราติดตั้งไว้ให้เป็นอวัยวะของสถานที่นั้นนั้น ไม่ว่าจะเป็นบ้าน ห้อง หรือสถานที่สเกลไหนก็ตาม primitive เดิมคือการ on/off หรือ state อื่นๆที่ตัวนั้นทำได้
-- Time (as context) : ตอนนี้กี่โมง วันอะไร sunrise/sunset ตอนไหน และแสงวันนี้ duration ยาวนานกี่นาที ?
-- Time (as history) : observation/event ย้อนหลังสำหรับ baseline/learning ของแต่ละ devices หรือ entity
-- Presense : สิ่งนี้อาจจะเรียกว่าเป็นสิ่งที่จำเป็นมากที่สุด เนื่องจากว่าถ้าหากไม่มีก็ยากมากที่จะรู้ได้ว่าใครคือผู้ที่เข้าออกสถานที่นั้นนั้น แล้วก็เมื่อไหร่
-- Rules : สิ่งนี้ใช้งานเป็นหลักเมื่อผู้ใช้มีความต้องการที่จะตั้งการกระทำเป็นเงื่อนไข เช่น "ให้รดน้ำทุกวัน ยกเว้นวันที่ฝนตกกับตอนที่ดินเปียกเกินไป"
+## What is Ambient Intelligence made of? (The basics)
+
+Most of these components are fairly accessible and can be found in many countries.
+
+For my prototype, I mainly use Shelly devices for sensors and actuators. Presence can come from the iOS or Android ecosystem, or from entirely different sources.
+
+- **Sensor:** An important component for bringing context from the physical world into its digital representation. Sensor observations enter through the ingest layer and can later contribute to state, interpretation, and decisions.
+
+- **Actuator:** Think of an actuator as an organ that allows a place to act on the physical world. The place might be a room, a house, or something much larger. The basic primitive may be as simple as on/off, or any other state the device is capable of controlling.
+
+- **Time (as context):** What time is it? What day is it? When are sunrise and sunset? How long has today's sunlight lasted?
+
+- **Time (as history):** Historical observations and events that can be used to establish baselines and eventually learn the behavior of individual devices or entities.
+
+- **Presence:** Possibly one of the most important pieces. Without presence, it becomes much harder for the system to understand who enters or leaves a place, where they are, and when it happened.
+
+- **Rules:** Used when a person wants to express an action as a condition. For example:  
+  *"Water the garden every day, except when it's raining or when the soil is already too wet."*
 
 ## Topology
+
 ```plaintext
 People + Environment
         ↓
@@ -40,3 +74,5 @@ Presence + Sensors + External Context
         ↓
 Lights / Fans / TV / Pumps / Sprinklers
 ```
+
+* I can't say how often I'll update, but more soon.
